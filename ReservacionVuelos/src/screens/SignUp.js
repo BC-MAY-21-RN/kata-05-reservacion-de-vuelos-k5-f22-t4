@@ -7,7 +7,7 @@ import SignUpForm from '../components/SignUpForm';
 const SignUp = () => {
   return (
     <View style={signUpStyles.screen}>
-      <View style={{flex: 1, borderWidth: 0.4}}>
+      <View style={{flex: 1}}>
         <Text style={signUpStyles.titleForm}>SignUp</Text>
       </View>
       <SignUpForm />

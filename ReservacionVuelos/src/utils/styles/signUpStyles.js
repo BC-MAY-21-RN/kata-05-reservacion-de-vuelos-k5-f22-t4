@@ -1,6 +1,7 @@
 'use strict';
 import {StyleSheet} from 'react-native';
 import colors from '../colors';
+
 module.exports = StyleSheet.create({
   screen: {
     flex: 1,
@@ -23,7 +24,12 @@ module.exports = StyleSheet.create({
     marginBottom: 5,
   },
   inputForm: {borderColor: colors.GRAY, borderWidth: 1, height: 50},
-  titleForm: {color: colors.PRIMARY_COLOR, fontSize: 25, marginVertical: 20},
+  titleForm: {
+    color: colors.PRIMARY_COLOR,
+    fontSize: 25,
+    marginVertical: 20,
+    fontFamily: 'Barlow-SemiBold',
+  },
   submit: {
     backgroundColor: colors.PRIMARY_COLOR,
     padding: 10,
@@ -31,5 +37,6 @@ module.exports = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     borderRadius: 10,
+    fontFamily: 'Barlow-SemiBold',
   },
 });
