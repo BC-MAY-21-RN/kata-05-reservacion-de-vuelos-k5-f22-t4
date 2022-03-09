@@ -1,4 +1,4 @@
-import {Text, View, TextInput} from 'react-native';
+import {Text, View, TextInput, Pressable} from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
@@ -26,6 +26,9 @@ const SignUpForm = () => {
         </Text>
       </View>
       <TermsAndConditions />
+      <Pressable style={{marginHorizontal: 10, marginVertical: 20}}>
+        <Text style={signUpStyles.submit}>Sign Up</Text>
+      </Pressable>
     </View>
   );
 };

@@ -24,4 +24,12 @@ module.exports = StyleSheet.create({
   },
   inputForm: {borderColor: colors.GRAY, borderWidth: 1, height: 50},
   titleForm: {color: colors.PRIMARY_COLOR, fontSize: 25, marginVertical: 20},
+  submit: {
+    backgroundColor: colors.PRIMARY_COLOR,
+    padding: 10,
+    fontSize: 20,
+    color: 'white',
+    textAlign: 'center',
+    borderRadius: 10,
+  },
 });
