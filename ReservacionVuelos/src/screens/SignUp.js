@@ -3,6 +3,7 @@ import React from 'react';
 
 import signUpStyles from '../utils/styles/signUpStyles';
 import SignUpForm from '../components/SignUpForm';
+
 const SignUp = () => {
   return (
     <View style={signUpStyles.screen}>
