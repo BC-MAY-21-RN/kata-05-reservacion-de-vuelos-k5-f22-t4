@@ -1,8 +1,5 @@
 import {Text, View, TextInput, Pressable} from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import colors from '../utils/colors';
 import CheckBox from './CheckBox';
 import signUpStyles from '../utils/styles/signUpStyles';
 import TermsAndConditions from './TermsAndConditions';
