@@ -9,7 +9,7 @@ module.exports = StyleSheet.create({
     padding: 15,
   },
   form: {
-    flex: 6,
+    flex: 8,
   },
   CheckBox: {
     marginVertical: 5,
@@ -17,7 +17,7 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
   },
   field: {
-    marginVertical: 12,
+    marginVertical: 8,
   },
   labelForm: {
     fontSize: 17,

@@ -6,6 +6,7 @@ import colors from '../utils/colors';
 import CheckBox from './CheckBox';
 import signUpStyles from '../utils/styles/signUpStyles';
 import TermsAndConditions from './TermsAndConditions';
+import ButtonForm from './ButtonForm';
 
 const SignUpForm = () => {
   return (
@@ -26,9 +27,16 @@ const SignUpForm = () => {
         </Text>
       </View>
       <TermsAndConditions />
-      <Pressable style={{marginHorizontal: 10, marginVertical: 20}}>
-        <Text style={signUpStyles.submit}>Sign Up</Text>
-      </Pressable>
+      <View
+        style={{
+          marginTop: 10,
+        }}>
+        <ButtonForm icon="" value="Sign Up" />
+        <ButtonForm icon="google" value="Sign Up with Google" />
+        <Text style={{alignSelf: 'center', marginTop: 15}}>
+          Already have an account? Log In
+        </Text>
+      </View>
     </View>
   );
 };
