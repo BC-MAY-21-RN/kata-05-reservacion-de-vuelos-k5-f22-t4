@@ -1,41 +1,25 @@
-import {Text, View, TextInput, Pressable} from 'react-native';
+import {Text, View} from 'react-native';
 import React from 'react';
-import CheckBox from './CheckBox';
 import signUpStyles from '../utils/styles/signUpStyles';
 import TermsAndConditions from './TermsAndConditions';
 import ButtonForm from './ButtonForm';
-
+import FieldForm from './FieldForm';
 const SignUpForm = () => {
   return (
     <View style={signUpStyles.form}>
-      <View style={signUpStyles.field}>
-        <Text style={signUpStyles.labelForm}>First Name</Text>
-        <TextInput style={signUpStyles.inputForm} />
-      </View>
-      <View style={signUpStyles.field}>
-        <Text style={signUpStyles.labelForm}>Email*</Text>
-        <TextInput style={signUpStyles.inputForm} />
-      </View>
-      <View style={signUpStyles.field}>
-        <Text style={signUpStyles.labelForm}>Password*</Text>
-        <TextInput style={signUpStyles.inputForm} secureTextEntry={true} />
-        <Text style={{fontSize: 14}}>
-          Use 8 or more characters with a mix letters, numbers and symbols.
-        </Text>
-      </View>
+      <FieldForm label="First Name" />
+      <FieldForm label="Email*" />
+      <FieldForm label="Password*" secure={true} />
       <TermsAndConditions />
-      <View
-        style={{
-          marginTop: 10,
-        }}>
-        <ButtonForm icon="" value="Sign Up" />
-        <ButtonForm icon="google" value="Sign Up with Google" />
-        <Text style={{alignSelf: 'center', marginTop: 15}}>
+      <View style={signUpStyles.buttonContainer}>
+        <ButtonForm content="Sign Up" />
+        <Text style={{alignSelf: 'center'}}>or</Text>
+        <ButtonForm icon="google" content="Sign Up with Google" />
+        <Text style={signUpStyles.textLogin}>
           Already have an account? Log In
         </Text>
       </View>
     </View>
   );
 };
-
 export default SignUpForm;

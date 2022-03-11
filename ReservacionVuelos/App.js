@@ -1,4 +1,3 @@
-import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
 import SignUp from './src/screens/SignUp';
@@ -7,5 +6,3 @@ const App = () => {
 };
 
 export default App;
-
-const styles = StyleSheet.create({});

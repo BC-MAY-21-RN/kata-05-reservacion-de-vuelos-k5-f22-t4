@@ -8,14 +8,7 @@ module.exports = StyleSheet.create({
     flexDirection: 'column',
     padding: 15,
   },
-  form: {
-    flex: 8,
-  },
-  CheckBox: {
-    marginVertical: 5,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
+  form: {},
   field: {
     marginVertical: 8,
   },
@@ -23,20 +16,54 @@ module.exports = StyleSheet.create({
     fontSize: 17,
     marginBottom: 5,
   },
-  inputForm: {borderColor: colors.GRAY, borderWidth: 1, height: 50},
+  inputForm: {
+    borderColor: colors.GRAY,
+    borderWidth: 1,
+    height: 40,
+  },
   titleForm: {
     color: colors.PRIMARY_COLOR,
     fontSize: 25,
     marginVertical: 20,
     fontFamily: 'Barlow-SemiBold',
   },
-  submit: {
+  textTerms: {
+    textDecorationLine: 'underline',
+  },
+  checkbox: {
+    marginVertical: 5,
+  },
+  iconCheckBox: {
+    borderRadius: 0,
+    borderColor: 'black',
+    borderWidth: 0.5,
+    height: 20,
+    width: 20,
+    marginRight: 15,
+  },
+  buttonContainer: {
+    margin: 10,
+  },
+  button: {
     backgroundColor: colors.PRIMARY_COLOR,
     padding: 10,
+    borderRadius: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+  },
+  buttonText: {
     fontSize: 20,
     color: 'white',
-    textAlign: 'center',
-    borderRadius: 10,
     fontFamily: 'Barlow-SemiBold',
+  },
+  iconButton: {
+    marginRight: 10,
+    color: 'white',
+  },
+  textLogin: {
+    alignSelf: 'center',
+    marginTop: 15,
   },
 });

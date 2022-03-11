@@ -1,25 +1,29 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import React from 'react';
-import CheckBox from './CheckBox';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import signUpStyles from '../utils/styles/signUpStyles';
+import colors from '../utils/colors';
 
 const TermsAndConditions = () => {
   return (
     <View>
-      <CheckBox
-        textContent={
-          <Text style={{}}>
+      <BouncyCheckbox
+        style={signUpStyles.checkbox}
+        iconStyle={signUpStyles.iconCheckBox}
+        fillColor={colors.PRIMARY_COLOR}
+        textComponent={
+          <Text>
             I agree to the
-            <Text style={{textDecorationLine: 'underline'}}>Terms</Text> and
-            <Text style={{textDecorationLine: 'underline'}}>
-              {' '}
-              Privacy Policy
-            </Text>
+            <Text style={signUpStyles.textTerms}>Terms</Text> and
+            <Text style={signUpStyles.textTerms}> Privacy Policy</Text>
           </Text>
         }
       />
-
-      <CheckBox
-        textContent={<Text>Subscribe for select produtc updates.</Text>}
+      <BouncyCheckbox
+        style={signUpStyles.checkbox}
+        iconStyle={signUpStyles.iconCheckBox}
+        fillColor={colors.PRIMARY_COLOR}
+        textComponent={<Text>Subscribe for select produtc updates.</Text>}
       />
     </View>
   );
