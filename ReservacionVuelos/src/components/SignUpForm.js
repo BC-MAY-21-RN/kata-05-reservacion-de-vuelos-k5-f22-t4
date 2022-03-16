@@ -20,17 +20,16 @@ const SignupSchema = Yup.object().shape({
       '*Follow password recommendations ',
     ),
   terms: Yup.boolean().oneOf(
-    [false],
+    [true],
     '*You must agree to terms and conditions',
   ),
 });
 
 const SignUpForm = () => {
-  const [checkboxState, setCheckboxState] = useState(false);
   return (
     <Formik
       style={signUpStyles.form}
-      initialValues={{firstName: '', email: '', password: '', terms: false}}
+      initialValues={{firstName: '', email: '', password: '', terms: true}}
       validateOnMount={true}
       validationSchema={SignupSchema}
       onSubmit={values => console.log(values)}>
@@ -53,17 +52,11 @@ const SignUpForm = () => {
             secureTextEntry={true}
             name={'password'}
           />
-          <TermsAndConditions
-            setFieldValue={setFieldValue}
-            setFieldTouched={setFieldTouched}
-            setCheckboxState={setCheckboxState}
-            errors={errors}
-            touched={touched}
-          />
+          <TermsAndConditions name={'terms'} />
           <View style={signUpStyles.buttonContainer}>
-            <ButtonForm content="Sign Up" />
+            <ButtonForm content="Sign Up" onPress={handleSubmit} disabled={!isValid} />
             <Text style={{alignSelf: 'center'}}>or</Text>
-            <ButtonForm icon="google" content="Sign Up with Google" />
+            <ButtonForm icon="google" content="Sign Up with Google"/>
             <Text style={signUpStyles.textLogin}>
               Already have an account? Log In
             </Text>

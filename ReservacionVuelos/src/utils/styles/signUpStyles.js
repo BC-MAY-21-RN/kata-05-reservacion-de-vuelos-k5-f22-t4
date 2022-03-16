@@ -45,13 +45,21 @@ module.exports = StyleSheet.create({
     margin: 10,
   },
   button: {
-    backgroundColor: colors.PRIMARY_COLOR,
     padding: 10,
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
+  },
+  disableButton: {
+    backgroundColor: colors.GRAY
+  },
+  pressedButton: {
+    backgroundColor: colors.PRIMARY_COLOR_DARK
+  },
+  unPressedButton: {
+    backgroundColor: colors.PRIMARY_COLOR
   },
   buttonText: {
     fontSize: 20,

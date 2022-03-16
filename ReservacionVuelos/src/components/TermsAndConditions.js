@@ -1,18 +1,16 @@
 import {Text, View} from 'react-native';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import signUpStyles from '../utils/styles/signUpStyles';
 import colors from '../utils/colors';
 import {useField} from 'formik';
 
-const TermsAndConditions = ({
-  checkboxState,
-  setCheckboxState,
-  setFieldValue,
-  setFieldTouched,
-  errors,
-  touched,
-}) => {
+const TermsAndConditions = ({...props}) => {
+  const [field, meta, helpers] = useField(props);
+  const [checkboxState, setCheckboxState] = useState(true);
+  useEffect(() => {
+    helpers.setValue(checkboxState);
+  }, [checkboxState])
   return (
     <View>
       <BouncyCheckbox
@@ -21,9 +19,8 @@ const TermsAndConditions = ({
         fillColor={colors.PRIMARY_COLOR}
         isChecked={checkboxState}
         onPress={() => {
-          setFieldTouched('terms', true);
           setCheckboxState(!checkboxState);
-          setFieldValue('terms', checkboxState);
+          helpers.setTouched(true);
         }}
         textComponent={
           <Text>
@@ -39,8 +36,8 @@ const TermsAndConditions = ({
         fillColor={colors.PRIMARY_COLOR}
         textComponent={<Text>Subscribe for select produtc updates.</Text>}
       />
-      {errors.terms && touched.terms && (
-        <Text style={{color: 'red'}}>{errors.terms}</Text>
+      {meta.error && meta.touched && (
+        <Text style={{color: 'red'}}>{meta.error}</Text>
       )}
     </View>
   );
