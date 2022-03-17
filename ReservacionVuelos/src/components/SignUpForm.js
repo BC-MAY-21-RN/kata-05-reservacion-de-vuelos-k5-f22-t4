@@ -5,25 +5,8 @@ import TermsAndConditions from './TermsAndConditions';
 import ButtonForm from './ButtonForm';
 import FieldForm from './FieldForm';
 import {Formik} from 'formik';
-import * as Yup from 'yup';
-
-const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(3, '*Too Short!')
-    .max(50, '*Too Long!')
-    .required('*Required'),
-  email: Yup.string().email('Invalid email').required('*Required'),
-  password: Yup.string()
-    .required('*Please Enter your password')
-    .matches(
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      '*Follow password recommendations ',
-    ),
-  terms: Yup.boolean().oneOf(
-    [true],
-    '*You must agree to terms and conditions',
-  ),
-});
+import SignupSchema from '../utils/SignUpSchema';
+import SubscribeCheckbox from './SubscribeCheckbox';
 
 const SignUpForm = () => {
   return (
@@ -33,17 +16,7 @@ const SignUpForm = () => {
       validateOnMount={true}
       validationSchema={SignupSchema}
       onSubmit={values => console.log(values)}>
-      {({
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        values,
-        touched,
-        isValid,
-        errors,
-        setFieldValue,
-        setFieldTouched,
-      }) => (
+      {({handleSubmit, isValid}) => (
         <>
           <FieldForm label="First Name" name={'firstName'} />
           <FieldForm label="Email*" name={'email'} />
@@ -53,10 +26,15 @@ const SignUpForm = () => {
             name={'password'}
           />
           <TermsAndConditions name={'terms'} />
+          <SubscribeCheckbox />
           <View style={signUpStyles.buttonContainer}>
-            <ButtonForm content="Sign Up" onPress={handleSubmit} disabled={!isValid} />
+            <ButtonForm
+              content="Sign Up"
+              onPress={handleSubmit}
+              disabled={!isValid}
+            />
             <Text style={{alignSelf: 'center'}}>or</Text>
-            <ButtonForm icon="google" content="Sign Up with Google"/>
+            <ButtonForm icon="google" content="Sign Up with Google" />
             <Text style={signUpStyles.textLogin}>
               Already have an account? Log In
             </Text>

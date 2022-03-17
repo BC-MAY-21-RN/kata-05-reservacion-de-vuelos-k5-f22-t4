@@ -10,7 +10,7 @@ const TermsAndConditions = ({...props}) => {
   const [checkboxState, setCheckboxState] = useState(true);
   useEffect(() => {
     helpers.setValue(checkboxState);
-  }, [checkboxState])
+  }, [checkboxState]);
   return (
     <View>
       <BouncyCheckbox
@@ -29,12 +29,6 @@ const TermsAndConditions = ({...props}) => {
             <Text style={signUpStyles.textTerms}> Privacy Policy</Text>
           </Text>
         }
-      />
-      <BouncyCheckbox
-        style={signUpStyles.checkbox}
-        iconStyle={signUpStyles.iconCheckBox}
-        fillColor={colors.PRIMARY_COLOR}
-        textComponent={<Text>Subscribe for select produtc updates.</Text>}
       />
       {meta.error && meta.touched && (
         <Text style={{color: 'red'}}>{meta.error}</Text>
