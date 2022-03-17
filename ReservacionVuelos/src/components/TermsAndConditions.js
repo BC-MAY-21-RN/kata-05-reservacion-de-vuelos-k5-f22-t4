@@ -4,6 +4,7 @@ import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import signUpStyles from '../utils/styles/signUpStyles';
 import colors from '../utils/colors';
 import {useField} from 'formik';
+import TextTerms from './TextTerms';
 
 const TermsAndConditions = ({...props}) => {
   const [field, meta, helpers] = useField(props);
@@ -22,13 +23,7 @@ const TermsAndConditions = ({...props}) => {
           setCheckboxState(!checkboxState);
           helpers.setTouched(true);
         }}
-        textComponent={
-          <Text>
-            I agree to the
-            <Text style={signUpStyles.textTerms}>Terms</Text> and
-            <Text style={signUpStyles.textTerms}> Privacy Policy</Text>
-          </Text>
-        }
+        textComponent={<TextTerms />}
       />
       {meta.error && meta.touched && (
         <Text style={{color: 'red'}}>{meta.error}</Text>
