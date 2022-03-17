@@ -1,13 +1,11 @@
-import {Text, View} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import signUpStyles from '../utils/styles/signUpStyles';
 import TermsAndConditions from './TermsAndConditions';
-import ButtonForm from './ButtonForm';
 import FieldForm from './FieldForm';
 import {Formik} from 'formik';
 import SignupSchema from '../utils/SignUpSchema';
 import SubscribeCheckbox from './SubscribeCheckbox';
-
+import SignUpButtons from './SignUpButtons';
 const SignUpForm = () => {
   return (
     <Formik
@@ -27,21 +25,11 @@ const SignUpForm = () => {
           />
           <TermsAndConditions name={'terms'} />
           <SubscribeCheckbox />
-          <View style={signUpStyles.buttonContainer}>
-            <ButtonForm
-              content="Sign Up"
-              onPress={handleSubmit}
-              disabled={!isValid}
-            />
-            <Text style={{alignSelf: 'center'}}>or</Text>
-            <ButtonForm icon="google" content="Sign Up with Google" />
-            <Text style={signUpStyles.textLogin}>
-              Already have an account? Log In
-            </Text>
-          </View>
+          <SignUpButtons handleSubmit={handleSubmit} isValid={isValid} />
         </>
       )}
     </Formik>
   );
 };
+
 export default SignUpForm;
