@@ -1,4 +1,4 @@
-import {StyleSheet, Text} from 'react-native';
+import {Text} from 'react-native';
 import React from 'react';
 import signUpStyles from '../utils/styles/signUpStyles';
 
@@ -12,5 +12,3 @@ const TextTerms = () => {
 };
 
 export default TextTerms;
-
-const styles = StyleSheet.create({});

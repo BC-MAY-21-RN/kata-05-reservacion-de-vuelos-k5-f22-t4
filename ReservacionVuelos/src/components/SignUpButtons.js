@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import React from 'react';
 import signUpStyles from '../utils/styles/signUpStyles';
 import ButtonForm from './ButtonForm';
@@ -21,5 +21,3 @@ const SignUpButtons = ({handleSubmit, isValid}) => {
 };
 
 export default SignUpButtons;
-
-const styles = StyleSheet.create({});
