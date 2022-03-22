@@ -53,13 +53,13 @@ module.exports = StyleSheet.create({
     height: 50,
   },
   disableButton: {
-    backgroundColor: colors.GRAY
+    backgroundColor: colors.GRAY,
   },
   pressedButton: {
-    backgroundColor: colors.PRIMARY_COLOR_DARK
+    backgroundColor: colors.PRIMARY_COLOR_DARK,
   },
   unPressedButton: {
-    backgroundColor: colors.PRIMARY_COLOR
+    backgroundColor: colors.PRIMARY_COLOR,
   },
   buttonText: {
     fontSize: 20,
@@ -73,5 +73,23 @@ module.exports = StyleSheet.create({
   textLogin: {
     alignSelf: 'center',
     marginTop: 15,
+  },
+  modalScreen: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.69)',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingContainer: {
+    backgroundColor: colors.DARK,
+    padding: 30,
+    borderRadius: 10,
+  },
+  modalText: {
+    color: colors.PRIMARY_COLOR,
+    marginTop: 10,
+    fontSize: 20,
+    fontFamily: 'Barlow-SemiBold',
   },
 });
