@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import {Alert} from 'react-native';
 import signUpStyles from '../utils/styles/signUpStyles';
 import TermsAndConditions from './TermsAndConditions';
-import FieldForm from './FieldForm';
 import {Formik} from 'formik';
 import SignupSchema from '../utils/SignUpSchema';
 import SubscribeCheckbox from './SubscribeCheckbox';
 import SignUpButtons from './SignUpButtons';
 import auth from '@react-native-firebase/auth';
 import ModalResponse from './ModalResponse';
+import FormContain from './FormContain';
 
 const registerUser = (values, setModalVisible) => {
   auth()
@@ -27,6 +27,7 @@ const registerUser = (values, setModalVisible) => {
       console.error(error);
     });
 };
+
 const SignUpForm = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
@@ -39,13 +40,7 @@ const SignUpForm = () => {
         onSubmit={values => registerUser(values, setModalVisible)}>
         {({handleSubmit, isValid}) => (
           <>
-            <FieldForm label="First Name" name={'firstName'} />
-            <FieldForm label="Email*" name={'email'} />
-            <FieldForm
-              label="Password*"
-              secureTextEntry={true}
-              name={'password'}
-            />
+            <FormContain />
             <TermsAndConditions name={'terms'} />
             <SubscribeCheckbox />
             <SignUpButtons handleSubmit={handleSubmit} isValid={isValid} />
@@ -56,4 +51,5 @@ const SignUpForm = () => {
     </>
   );
 };
+
 export default SignUpForm;
