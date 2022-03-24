@@ -1,7 +1,7 @@
 import {View, Modal, Text, ActivityIndicator} from 'react-native';
 import React from 'react';
 import colors from '../utils/colors';
-import signUpStyles from '../utils/styles/signUpStyles';
+import signUpStyles from '../utils/styles/Styles';
 
 const ModalResponse = ({modalVisible}) => {
   return (

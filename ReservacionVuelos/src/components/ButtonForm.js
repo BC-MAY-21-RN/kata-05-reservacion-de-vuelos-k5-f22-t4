@@ -1,9 +1,8 @@
 import { Text, Pressable, View, Image } from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import signUpStyles from '../utils/styles/signUpStyles';
+import signUpStyles from '../utils/styles/Styles';
 
-const ButtonForm = ({ content, icon, disabled = false, ...props }) => {
+const ButtonForm = ({ content, img, disabled = false, ...props }) => {
   return (
     <Pressable
       {...props}
@@ -18,7 +17,7 @@ const ButtonForm = ({ content, icon, disabled = false, ...props }) => {
               : signUpStyles.unPressedButton,
           signUpStyles.button
         ]}>
-          {icon && <Icon style={signUpStyles.iconButton} name={icon} size={20} />}
+          {img && <Image source={img} style={signUpStyles.img} />}
           <Text style={signUpStyles.buttonText}>{content}</Text>
         </View>
       )}

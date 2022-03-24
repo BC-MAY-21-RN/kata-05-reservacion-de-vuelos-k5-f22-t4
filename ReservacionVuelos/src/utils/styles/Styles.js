@@ -92,4 +92,9 @@ module.exports = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Barlow-SemiBold',
   },
+  img: {
+    width: 25,
+    height: 25,
+    marginRight: 10,
+  }
 });

@@ -1,6 +1,6 @@
 import {Text} from 'react-native';
 import React from 'react';
-import signUpStyles from '../utils/styles/signUpStyles';
+import signUpStyles from '../utils/styles/Styles';
 
 const TextTerms = () => {
   return (

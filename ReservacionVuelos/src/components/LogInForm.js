@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import FieldForm from './FieldForm';
 import LoginSchema from '../utils/LoginSchema';
 import SignUpButtons from './SignUpButtons';
-import Styles from '../utils/styles/signUpStyles';
+import Styles from '../utils/styles/Styles';
 function LogInForm() {
     return (
         <>

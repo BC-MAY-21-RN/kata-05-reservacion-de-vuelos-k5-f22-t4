@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Text } from 'react-native';
-import signUpStyles from '../utils/styles/signUpStyles';
+import signUpStyles from '../utils/styles/Styles';
 import TermsAndConditions from './TermsAndConditions';
 import { Formik } from 'formik';
 import SignupSchema from '../utils/SignUpSchema';
