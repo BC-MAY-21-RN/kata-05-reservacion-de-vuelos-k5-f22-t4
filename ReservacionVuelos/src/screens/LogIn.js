@@ -5,7 +5,6 @@ import LogInForm from '../components/LogInForm';
 const LogIn = () => {
     return (
         <View style={Styles.screen}>
-            <Text style={Styles.titleForm}>LogIn</Text>
             <LogInForm />
         </View>
     );

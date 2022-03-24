@@ -6,7 +6,6 @@ import SignUpForm from '../components/SignUpForm';
 const SignUp = () => {
   return (
     <View style={signUpStyles.screen}>
-      <Text style={signUpStyles.titleForm}>SignUp</Text>
       <SignUpForm />
     </View>
   );
