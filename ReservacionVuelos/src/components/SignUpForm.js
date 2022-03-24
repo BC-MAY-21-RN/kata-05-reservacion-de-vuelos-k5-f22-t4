@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import {Alert} from 'react-native';
+import React, { useState } from 'react';
+import { Alert } from 'react-native';
 import signUpStyles from '../utils/styles/signUpStyles';
 import TermsAndConditions from './TermsAndConditions';
-import {Formik} from 'formik';
+import { Formik } from 'formik';
 import SignupSchema from '../utils/SignUpSchema';
 import SubscribeCheckbox from './SubscribeCheckbox';
 import SignUpButtons from './SignUpButtons';
@@ -34,16 +34,16 @@ const SignUpForm = () => {
     <>
       <Formik
         style={signUpStyles.form}
-        initialValues={{firstName: '', email: '', password: '', terms: true}}
+        initialValues={{ firstName: '', email: '', password: '', terms: true }}
         validateOnMount={true}
         validationSchema={SignupSchema}
         onSubmit={values => registerUser(values, setModalVisible)}>
-        {({handleSubmit, isValid}) => (
+        {({ handleSubmit, isValid }) => (
           <>
             <FormContain />
             <TermsAndConditions name={'terms'} />
             <SubscribeCheckbox />
-            <SignUpButtons handleSubmit={handleSubmit} isValid={isValid} />
+            <SignUpButtons handleSubmit={handleSubmit} isValid={isValid} label="Sign Up" />
           </>
         )}
       </Formik>
