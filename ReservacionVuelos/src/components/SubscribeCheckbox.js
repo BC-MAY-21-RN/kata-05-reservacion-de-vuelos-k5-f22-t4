@@ -2,7 +2,7 @@ import {Text} from 'react-native';
 import React from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import colors from '../utils/colors';
-import signUpStyles from '../utils/styles/signUpStyles';
+import signUpStyles from '../utils/styles/Styles';
 
 const SubscribeCheckbox = () => {
   return (

@@ -1,6 +1,6 @@
 import {Text, View, TextInput} from 'react-native';
 import React from 'react';
-import signUpStyles from '../utils/styles/signUpStyles';
+import signUpStyles from '../utils/styles/Styles';
 import {useField} from 'formik';
 const FieldForm = ({label, ...props}) => {
   const [field, meta, helpers] = useField(props);

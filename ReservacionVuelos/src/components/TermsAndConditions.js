@@ -1,7 +1,7 @@
 import {Text, View} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import signUpStyles from '../utils/styles/signUpStyles';
+import signUpStyles from '../utils/styles/Styles';
 import colors from '../utils/colors';
 import {useField} from 'formik';
 import TextTerms from './TextTerms';
