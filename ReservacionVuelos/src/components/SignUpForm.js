@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, Text } from 'react-native';
+import { Alert, Text, View } from 'react-native';
 import signUpStyles from '../utils/styles/Styles';
 import TermsAndConditions from './TermsAndConditions';
 import { Formik } from 'formik';
@@ -31,7 +31,7 @@ const registerUser = (values, setModalVisible) => {
 const SignUpForm = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <>
+    <View style={signUpStyles.screen}>
       <Text style={signUpStyles.titleForm}>SignUp</Text>
       <Formik
         style={signUpStyles.form}
@@ -49,7 +49,7 @@ const SignUpForm = () => {
         )}
       </Formik>
       <ModalResponse modalVisible={modalVisible} />
-    </>
+    </View>
   );
 };
 
