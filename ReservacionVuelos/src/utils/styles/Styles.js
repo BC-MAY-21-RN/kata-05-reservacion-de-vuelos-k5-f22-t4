@@ -8,7 +8,6 @@ module.exports = StyleSheet.create({
     flexDirection: 'column',
     padding: 15,
   },
-  form: {},
   field: {
     marginVertical: 8,
   },
