@@ -1,5 +1,5 @@
 'use strict';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import colors from '../colors';
 
 module.exports = StyleSheet.create({
@@ -69,9 +69,12 @@ module.exports = StyleSheet.create({
     marginRight: 10,
     color: 'white',
   },
-  textLogin: {
-    alignSelf: 'center',
+  textAccount: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 15,
+
   },
   modalScreen: {
     flex: 1,

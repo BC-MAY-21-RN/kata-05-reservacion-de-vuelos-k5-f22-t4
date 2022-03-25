@@ -6,24 +6,29 @@ import LogIn from "../screens/LogIn";
 import SignUp from "../screens/SignUp";
 import Flights from "../screens/Flights";
 
+import FlightsNavigation from "./NavigationFlights";
+import AuthNavigation from "./AuthNavigation";
+
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
-    return(
-        <Tab.Navigator>
-            <Tab.Screen 
+    return (
+        <Tab.Navigator initialRouteName="Login">
+            <Tab.Screen
                 name="Account"
-                component={LogIn}
-                options= {{
+                component={AuthNavigation}
+                options={{
                     tabBarLabel: "Mi Cuenta",
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (<Icon name='user' size={30} color={color} />)
                 }}
             />
-            <Tab.Screen 
+            <Tab.Screen
                 name="Flights"
-                component={Flights}
-                options= {{
+                component={FlightsNavigation}
+                options={{
                     tabBarLabel: "Vuelos",
+                    headerShown: false,
                     tabBarIcon: ({ color, size }) => (<Icon name='plane' size={30} color={color} />)
                 }}
             />
