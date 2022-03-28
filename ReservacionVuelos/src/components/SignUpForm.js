@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { Alert, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import {Alert, Text, ScrollView} from 'react-native';
 import signUpStyles from '../utils/styles/Styles';
 import TermsAndConditions from './TermsAndConditions';
-import { Formik } from 'formik';
+import {Formik} from 'formik';
 import SignupSchema from '../utils/SignUpSchema';
-import SubscribeCheckbox from './SubscribeCheckbox';
 import SignUpButtons from './SignUpButtons';
 import auth from '@react-native-firebase/auth';
 import ModalResponse from './ModalResponse';
@@ -31,25 +30,28 @@ const registerUser = (values, setModalVisible) => {
 const SignUpForm = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={signUpStyles.screen}>
+    <ScrollView style={signUpStyles.screen}>
       <Text style={signUpStyles.titleForm}>SignUp</Text>
       <Formik
         style={signUpStyles.form}
-        initialValues={{ firstName: '', email: '', password: '', terms: true }}
+        initialValues={{firstName: '', email: '', password: '', terms: true}}
         validateOnMount={true}
         validationSchema={SignupSchema}
         onSubmit={values => registerUser(values, setModalVisible)}>
-        {({ handleSubmit, isValid }) => (
+        {({handleSubmit, isValid}) => (
           <>
             <FormContain />
             <TermsAndConditions name={'terms'} />
-            <SubscribeCheckbox />
-            <SignUpButtons handleSubmit={handleSubmit} isValid={isValid} label="Sign Up" />
+            <SignUpButtons
+              handleSubmit={handleSubmit}
+              isValid={isValid}
+              label="Sign Up"
+            />
           </>
         )}
       </Formik>
       <ModalResponse modalVisible={modalVisible} />
-    </View>
+    </ScrollView>
   );
 };
 

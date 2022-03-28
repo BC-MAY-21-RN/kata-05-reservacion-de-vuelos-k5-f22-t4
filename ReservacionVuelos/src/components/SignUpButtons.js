@@ -1,7 +1,8 @@
-import { Text, View } from 'react-native';
+import { Text, View, Pressable } from 'react-native';
 import React from 'react';
 import signUpStyles from '../utils/styles/Styles';
 import ButtonForm from './ButtonForm';
+import TextLink from './TextLink';
 
 const SignUpButtons = ({ handleSubmit, isValid, label }) => {
   const img = require('../assets/img/google.png')
@@ -15,12 +16,13 @@ const SignUpButtons = ({ handleSubmit, isValid, label }) => {
       <Text style={{ alignSelf: 'center' }}>or</Text>
       <ButtonForm img={img} content={`${label} with Google`} />
 
-      {label == 'Sign Up' ? (<Text style={signUpStyles.textLogin}>
-        Already have an account? Log In
-      </Text>) : (<Text style={signUpStyles.textLogin}>
-        Do you haven't an account? Sign Up
-      </Text>)}
-    </View>
+      {label == 'Sign Up' ? (<TextLink contentText={"Already have an account?"} linkText={'Log In'} routeName={'Login'} />) : (
+        <TextLink contentText={"Do you haven't an account?"} linkText={'Sign Up'} routeName={'Signup'} />
+      )
+      }
+
+
+    </View >
   );
 };
 

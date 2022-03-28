@@ -8,7 +8,6 @@ module.exports = StyleSheet.create({
     flexDirection: 'column',
     padding: 15,
   },
-  form: {},
   field: {
     marginVertical: 8,
   },
@@ -43,6 +42,7 @@ module.exports = StyleSheet.create({
   },
   buttonContainer: {
     margin: 10,
+    marginBottom: 20,
   },
   button: {
     padding: 10,
@@ -70,8 +70,10 @@ module.exports = StyleSheet.create({
     marginRight: 10,
     color: 'white',
   },
-  textLogin: {
-    alignSelf: 'center',
+  textAccount: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 15,
   },
   modalScreen: {
@@ -96,5 +98,5 @@ module.exports = StyleSheet.create({
     width: 25,
     height: 25,
     marginRight: 10,
-  }
+  },
 });
