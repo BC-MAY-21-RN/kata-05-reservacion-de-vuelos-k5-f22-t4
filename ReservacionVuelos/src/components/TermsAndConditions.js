@@ -13,25 +13,23 @@ const TermsAndConditions = ({...props}) => {
     helpers.setValue(checkboxState);
   }, [checkboxState]);
   return (
-    <>
-      <View>
-        <BouncyCheckbox
-          style={signUpStyles.checkbox}
-          iconStyle={signUpStyles.iconCheckBox}
-          fillColor={colors.PRIMARY_COLOR}
-          isChecked={checkboxState}
-          onPress={() => {
-            setCheckboxState(!checkboxState);
-            helpers.setTouched(true);
-          }}
-          textComponent={<TextTerms />}
-        />
-        {meta.error && meta.touched && (
-          <Text style={{color: 'red'}}>{meta.error}</Text>
-        )}
-      </View>
+    <View>
+      <BouncyCheckbox
+        style={signUpStyles.checkbox}
+        iconStyle={signUpStyles.iconCheckBox}
+        fillColor={colors.PRIMARY_COLOR}
+        isChecked={checkboxState}
+        onPress={() => {
+          setCheckboxState(!checkboxState);
+          helpers.setTouched(true);
+        }}
+        textComponent={<TextTerms />}
+      />
+      {meta.error && meta.touched && (
+        <Text style={{color: 'red'}}>{meta.error}</Text>
+      )}
       <SubscribeCheckbox />
-    </>
+    </View>
   );
 };
 
