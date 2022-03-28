@@ -4,7 +4,6 @@ import signUpStyles from '../utils/styles/Styles';
 import TermsAndConditions from './TermsAndConditions';
 import {Formik} from 'formik';
 import SignupSchema from '../utils/SignUpSchema';
-import SubscribeCheckbox from './SubscribeCheckbox';
 import SignUpButtons from './SignUpButtons';
 import auth from '@react-native-firebase/auth';
 import ModalResponse from './ModalResponse';
@@ -43,7 +42,6 @@ const SignUpForm = () => {
           <>
             <FormContain />
             <TermsAndConditions name={'terms'} />
-            <SubscribeCheckbox />
             <SignUpButtons
               handleSubmit={handleSubmit}
               isValid={isValid}
