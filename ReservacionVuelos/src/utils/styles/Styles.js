@@ -1,5 +1,5 @@
 'use strict';
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import colors from '../colors';
 
 module.exports = StyleSheet.create({
@@ -42,6 +42,7 @@ module.exports = StyleSheet.create({
   },
   buttonContainer: {
     margin: 10,
+    marginBottom: 20,
   },
   button: {
     padding: 10,
@@ -74,7 +75,6 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 15,
-
   },
   modalScreen: {
     flex: 1,
@@ -98,5 +98,5 @@ module.exports = StyleSheet.create({
     width: 25,
     height: 25,
     marginRight: 10,
-  }
+  },
 });
