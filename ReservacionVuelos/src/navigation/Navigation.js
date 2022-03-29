@@ -2,12 +2,11 @@ import React from "react";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import LogIn from "../screens/LogIn";
-import SignUp from "../screens/SignUp";
-import Flights from "../screens/Flights";
-
 import FlightsNavigation from "./NavigationFlights";
 import AuthNavigation from "./AuthNavigation";
+
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'
+import {faPlane, faUser} from '@fortawesome/free-solid-svg-icons'
 
 const Tab = createBottomTabNavigator();
 
@@ -20,7 +19,7 @@ export default function Navigation() {
                 options={{
                     tabBarLabel: "Mi Cuenta",
                     headerShown: false,
-                    tabBarIcon: ({ color, size }) => (<Icon name='user' size={30} color={color} />)
+                    tabBarIcon: ({ color, size }) => (<FontAwesomeIcon icon={faUser} size={size} color={color} />)
                 }}
             />
             <Tab.Screen
@@ -29,7 +28,7 @@ export default function Navigation() {
                 options={{
                     tabBarLabel: "Vuelos",
                     headerShown: false,
-                    tabBarIcon: ({ color, size }) => (<Icon name='plane' size={30} color={color} />)
+                    tabBarIcon: ({ color, size }) => (<FontAwesomeIcon icon={faPlane} size={size} color={color} />)
                 }}
             />
         </Tab.Navigator>

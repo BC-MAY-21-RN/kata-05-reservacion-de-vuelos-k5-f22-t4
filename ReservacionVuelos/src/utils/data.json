@@ -1,0 +1,68 @@
+[
+  {
+    "departure": [
+      {
+        "city": "cdmx",
+        "country": "méxico",
+        "abrev": "cmx",
+        "img": "https://cdn-icons-png.flaticon.com/512/330/330433.png"
+      }
+    ],
+    "arrival": [
+      {
+        "city": "guadalajara",
+        "country": "méxico",
+        "abrev": "gdl",
+        "img": "https://cdn-icons-png.flaticon.com/512/330/330433.png"
+      }
+    ],
+    "user": "tmario1508",
+    "date": "Marzo 29, 2022",
+    "passangers": 2,
+    "id": 1
+  },
+  {
+    "departure": [
+      {
+        "city": "bogota",
+        "country": "colombia",
+        "abrev": "bog",
+        "img": "https://cdn-icons-png.flaticon.com/512/330/330508.png"
+      }
+    ],
+    "arrival": [
+      {
+        "city": "cdmx",
+        "country": "méxico",
+        "abrev": "cmx",
+        "img": "https://cdn-icons-png.flaticon.com/512/330/330433.png"
+      }
+    ],
+    "user": "tmario1508",
+    "date": "Abril 15, 2022",
+    "passangers": 1,
+    "id": 2
+  },
+  {
+    "departure": [
+      {
+        "city": "houston",
+        "country": "estados unidos",
+        "abrev": "hou",
+        "img": "https://cdn-icons-png.flaticon.com/512/940/940207.png"
+      }
+    ],
+    "arrival": [
+      {
+        "city": "medellin",
+        "country": "colombia",
+        "abrev": "med",
+        "img": "https://cdn-icons-png.flaticon.com/512/330/330508.png"
+      }
+    ],
+    "user": "tmario1508",
+    "date": "Abril 15, 2022",
+    "passangers": 1,
+    "id": 2
+  }
+]
