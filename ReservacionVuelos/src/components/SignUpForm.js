@@ -8,13 +8,17 @@ import SignUpButtons from './SignUpButtons';
 import auth from '@react-native-firebase/auth';
 import ModalResponse from './ModalResponse';
 import FormContain from './FormContain';
+import {useNavigation} from '@react-navigation/native';
 
-const registerUser = (values, setModalVisible) => {
+const registerUser = (values, setModalVisible, navigation) => {
   auth()
     .createUserWithEmailAndPassword(values.email, values.password)
     .then(() => {
       console.log('User account created & signed in!');
       setModalVisible(true);
+      setTimeout(function () {
+        navigation.navigate('Flights');
+      }, 2500);
     })
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
@@ -29,6 +33,7 @@ const registerUser = (values, setModalVisible) => {
 
 const SignUpForm = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
   return (
     <ScrollView style={signUpStyles.screen}>
       <Text style={signUpStyles.titleForm}>SignUp</Text>
@@ -37,7 +42,7 @@ const SignUpForm = () => {
         initialValues={{firstName: '', email: '', password: '', terms: true}}
         validateOnMount={true}
         validationSchema={SignupSchema}
-        onSubmit={values => registerUser(values, setModalVisible)}>
+        onSubmit={values => registerUser(values, setModalVisible, navigation)}>
         {({handleSubmit, isValid}) => (
           <>
             <FormContain />
