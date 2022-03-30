@@ -9,14 +9,16 @@ import auth from '@react-native-firebase/auth';
 import ModalResponse from './ModalResponse';
 import FormContain from './FormContain';
 import {useNavigation} from '@react-navigation/native';
+import useAuth from '../hooks/useAuth';
 
-const registerUser = (values, setModalVisible, navigation) => {
+const registerUser = (values, setModalVisible, navigation, login) => {
   auth()
     .createUserWithEmailAndPassword(values.email, values.password)
-    .then(() => {
-      console.log('User account created & signed in!');
+    .then((user) => {
       setModalVisible(true);
+      login(user.user.email);
       setTimeout(function () {
+        setModalVisible(false);
         navigation.navigate('Flights');
       }, 2500);
     })
@@ -34,6 +36,8 @@ const registerUser = (values, setModalVisible, navigation) => {
 const SignUpForm = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
+  const {login} = useAuth();
+
   return (
     <ScrollView style={signUpStyles.screen}>
       <Text style={signUpStyles.titleForm}>SignUp</Text>
@@ -42,7 +46,7 @@ const SignUpForm = () => {
         initialValues={{firstName: '', email: '', password: '', terms: true}}
         validateOnMount={true}
         validationSchema={SignupSchema}
-        onSubmit={values => registerUser(values, setModalVisible, navigation)}>
+        onSubmit={values => registerUser(values, setModalVisible, navigation, login)}>
         {({handleSubmit, isValid}) => (
           <>
             <FormContain />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Alert, Text, View} from 'react-native';
 import {Formik} from 'formik';
 import FieldForm from './FieldForm';
@@ -7,26 +7,26 @@ import SignUpButtons from './SignUpButtons';
 import Styles from '../utils/styles/Styles';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
+import useAuth from '../hooks/useAuth';
 
-const loginUser = (values, navigation) => {
-  auth()
-    .signOut()
-    .then(() => console.log('User signed out!'));
+const loginUser = (values, navigation, login) => {
   auth()
     .signInWithEmailAndPassword(values.email, values.password)
-    .then(user => {
-      setTimeout(function () {
+    .then((user) => {
+      login(user.user.email)
+      if (user) {
         navigation.navigate('Flights');
-      }, 2500);
+      }
     })
-    .catch(error => {
-      Alert.alert('Login Fail', 'Email/Password incorrect!');
-      console.log(error);
+    .catch((er) => {
+      throw er;
     });
 };
 
-function LogInForm() {
+const LogInForm = () => {
+  const [errorText, setErrorText] = useState("");
   const navigation = useNavigation();
+  const {login} = useAuth();
   return (
     <View style={Styles.screen}>
       <Text style={Styles.titleForm}>LogIn</Text>
@@ -34,7 +34,7 @@ function LogInForm() {
         initialValues={{email: '', password: ''}}
         validateOnMount={true}
         validationSchema={LoginSchema}
-        onSubmit={values => loginUser(values, navigation)}>
+        onSubmit={values => loginUser(values, navigation, login)}>
         {({handleSubmit, isValid}) => (
           <>
             <FieldForm label="Email" name={'email'} />

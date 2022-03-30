@@ -5,13 +5,16 @@ import {
   SafeAreaView,
   ActivityIndicator,
 } from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {getFlights} from '../api/flights';
-
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import ListFlights from '../components/Flights/FlaightsList';
+import useAuth from '../hooks/useAuth'
+import NoLogged from '../components/Account/NoLogged';
+import { useFocusEffect } from "@react-navigation/native"
+import auth from '@react-native-firebase/auth';
 
 import styles from '../utils/styles/stylesFlights';
 import colors from '../utils/colors';
@@ -21,7 +24,8 @@ export default function Flights() {
   const [flights, setFlights] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
+  const {login, auth} = useAuth()
+  
   useEffect(() => {
     (async () => {
       await loadFlights();
@@ -56,10 +60,12 @@ export default function Flights() {
       </View>
     );
   }
+  
 
   return (
+    !auth ?  <NoLogged /> :
     <>
-      <SafeAreaView>
+      <SafeAreaView style={styles.safeView}>
         <Text style={styles.titleScreen}>My flyghts</Text>
         <ListFlights flights={flights} style={styles.cardFlight} />
       </SafeAreaView>

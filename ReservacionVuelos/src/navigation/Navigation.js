@@ -11,6 +11,7 @@ import {faPlane, faUser} from '@fortawesome/free-solid-svg-icons'
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
+
     return (
         <Tab.Navigator initialRouteName="Login">
             <Tab.Screen
