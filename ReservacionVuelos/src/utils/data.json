@@ -64,5 +64,27 @@
     "date": "Abril 15, 2022",
     "passangers": 1,
     "id": 2
+  },
+  {
+    "departure": [
+      {
+        "city": "dallas",
+        "country": "estados Unidos",
+        "abrev": "dal",
+        "img": "https://cdn-icons-png.flaticon.com/512/940/940207.png"
+      }
+    ],
+    "arrival": [
+      {
+        "city": "monterrey",
+        "country": "méxico",
+        "abrev": "mty",
+        "img": "https://cdn-icons-png.flaticon.com/512/330/330433.png"
+      }
+    ],
+    "user": "tmario1508",
+    "date": "Agosto 1, 2022",
+    "passangers": 1,
+    "id": 2
   }
 ]

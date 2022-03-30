@@ -3,6 +3,9 @@ import {StyleSheet} from 'react-native';
 import colors from '../colors';
 
 module.exports = StyleSheet.create({
+  safeView: {
+    marginBottom: 70,
+  },
   titleScreen: {
     fontSize: 30,
     color: colors.PRIMARY_COLOR,
