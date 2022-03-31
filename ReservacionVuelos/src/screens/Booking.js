@@ -1,42 +1,29 @@
-import { View, Text, TextInput } from 'react-native'
-import React, {useState, useEffect} from 'react'
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faAngleLeft} from '@fortawesome/free-solid-svg-icons';
-import styles from '../utils/styles/stylesFlights'
+import { View, Text} from 'react-native'
+import React, {useEffect} from 'react'
+import styles from '../utils/styles/stylesBooking'
+import Button from '../components/Booking/Button';
+import InputText from '../components/Booking/InputText';
+import IconNavigation from '../components/Booking/IconNavigation';
 
 export default function Booking(props) {
   const {
     navigation,
     route: {params},
   } = props;
-  const [query, setQuery] = useState('');
 
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <FontAwesomeIcon
-          icon={faAngleLeft}
-          color="#5DADE2"
-          size={30}
-          style={{marginLeft: 20, marginTop: 20}}
-          onPress={navigation.goBack}
-        />
+        <IconNavigation navigation={navigation} />
       ),
     });
   }, [navigation, params]);
 
   return (
-    <View style={styles.containerGral}>
+    <View style={styles.containerFeacture}>
       <Text style={styles.textTitle}>Where are you now?</Text>
-      <TextInput
-        autoCapitalize='words'
-        autoCorrect={false}
-        clearButtonMode="always"
-        style={styles.input}
-        value={query}
-        onChangeText={queryText => handleSearch(queryText)}
-        placeholder="Search"
-      />
+      <InputText />
+      <Button next='AddArrival' />
     </View>
   )
 }

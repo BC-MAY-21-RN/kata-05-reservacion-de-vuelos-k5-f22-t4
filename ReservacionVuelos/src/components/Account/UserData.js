@@ -2,25 +2,26 @@ import {View, Text, Pressable} from 'react-native';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import useAuth from '../../hooks/useAuth';
-import {faPersonWalking, faUser, faEnvelope, faCheck} from '@fortawesome/free-solid-svg-icons';
+import {
+  faPersonWalking,
+  faUser,
+  faEnvelope,
+  faCheck,
+} from '@fortawesome/free-solid-svg-icons';
 import styles from '../../utils/styles/stylesData';
 import colors from '../../utils/colors';
 
-export default function UserData(props) {
+export default function UserData() {
   const {auth, logout} = useAuth();
+
   return (
     <View styles={styles.content}>
       <View style={styles.titleBlock}>
         <Text style={styles.titleBi}>Bienvenido</Text>
-        <Text
-          style={styles.title}>{`${auth.firstName}`}</Text>
+        <Text style={styles.title}>{`${auth.firstName}`}</Text>
       </View>
       <View style={styles.dataContent}>
-        <ItemMenu
-          title={'Name: '}
-          text={`${auth.firstName}`}
-          icon={faUser}
-        />
+        <ItemMenu title={'Name: '} text={`${auth.firstName}`} icon={faUser} />
         <ItemMenu title={'User: '} text={auth.userName} icon={faCheck} />
         <ItemMenu title={'Email: '} text={`${auth.email}`} icon={faEnvelope} />
       </View>

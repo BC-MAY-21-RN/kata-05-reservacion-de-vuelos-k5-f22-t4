@@ -75,22 +75,4 @@ module.exports = StyleSheet.create({
       color: '#000',
       fontSize: 16,
   },
-  containerGral: {
-    marginTop: 200,
-    alignItems: 'center',
-    marginBottom: 180,
-  },
-  textTitle: {
-    fontSize: 38,
-    fontWeight: 'bold',
-    color: '#000',
-    padding: 15,
-  },
-  input: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: '#ABB2B9',
-    width: '90%',
-    fontSize: 16,
-  },
 });
