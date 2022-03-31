@@ -8,40 +8,39 @@ export const AuthContext = createContext({
   logout: () => {},
 });
 
+function getUserData(userData, setAuth) {
+  (async () => {
+    try {
+      firestore()
+        .collection('Users')
+        .where('email', '==', userData)
+        .get()
+        .then(collectionSnapshot => {
+          collectionSnapshot.forEach(documentSnapshot => {
+            setAuth(documentSnapshot.data());
+          });
+        });
+    } catch (error) {
+      throw error;
+    }
+  })();
+}
 export function AuthProvider(props) {
   const {children} = props;
   const [auth, setAuth] = useState(undefined);
 
   function login(userData) {
-    (async () => {
-      try {
-        firestore()
-            .collection('Users')
-            .where('email', '==', userData)
-            .get()
-            .then(collectionSnapshot => {
-              collectionSnapshot.forEach(documentSnapshot => {
-                setAuth(documentSnapshot.data());
-              });
-            });
-      } catch (error) {
-        throw error;
-      }
-    })();
-    
+    getUserData(userData, setAuth);
   }
-
   const logout = () => {
     setAuth(undefined);
     authFirebase().signOut();
   };
-
   const valueContext = {
     auth,
     login,
     logout,
   };
-
   return (
     <AuthContext.Provider value={valueContext}>{children}</AuthContext.Provider>
   );

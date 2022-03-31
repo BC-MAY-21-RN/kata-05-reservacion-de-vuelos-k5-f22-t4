@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Alert, Text, ScrollView} from 'react-native';
 import signUpStyles from '../utils/styles/Styles';
 import TermsAndConditions from './TermsAndConditions';
-import {Formik} from 'formik';
+import {Form, Formik} from 'formik';
 import SignupSchema from '../utils/SignUpSchema';
 import SignUpButtons from './SignUpButtons';
 import auth from '@react-native-firebase/auth';
@@ -12,21 +12,29 @@ import {useNavigation} from '@react-navigation/native';
 import useAuth from '../hooks/useAuth';
 import firestore from '@react-native-firebase/firestore';
 
+function addUser(values) {
+  firestore()
+    .collection('Users')
+    .add({
+      email: values.email,
+      userName: values.email.split('@')[0],
+      firstName: values.firstName,
+    })
+    .then(() => {
+      console.log('User added!');
+    });
+}
+
 const registerUser = (values, setModalVisible, navigation, login) => {
   auth()
-    .createUserWithEmailAndPassword(values.email, values.password, values.firstName)
+    .createUserWithEmailAndPassword(
+      values.email,
+      values.password,
+      values.firstName,
+    )
     .then(user => {
       setModalVisible(true);
-      firestore()
-        .collection('Users')
-        .add({
-          email: values.email,
-          userName: values.email.split('@')[0],
-          firstName: values.firstName,
-        })
-        .then(() => {
-          console.log('User added!');
-        });
+      addUser(values);
       login(user.user.email);
       setTimeout(function () {
         setModalVisible(false);
@@ -61,19 +69,25 @@ const SignUpForm = () => {
           registerUser(values, setModalVisible, navigation, login)
         }>
         {({handleSubmit, isValid}) => (
-          <>
-            <FormContain />
-            <TermsAndConditions name={'terms'} />
-            <SignUpButtons
-              handleSubmit={handleSubmit}
-              isValid={isValid}
-              label="Sign Up"
-            />
-          </>
+          <FormC handleSubmit={handleSubmit} isValid={isValid} />
         )}
       </Formik>
       <ModalResponse modalVisible={modalVisible} />
     </ScrollView>
+  );
+};
+
+const FormC = ({handleSubmit, isValid}) => {
+  return (
+    <>
+      <FormContain />
+      <TermsAndConditions name={'terms'} />
+      <SignUpButtons
+        handleSubmit={handleSubmit}
+        isValid={isValid}
+        label="Sign Up"
+      />
+    </>
   );
 };
 
