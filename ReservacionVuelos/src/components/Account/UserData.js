@@ -13,15 +13,15 @@ export default function UserData(props) {
       <View style={styles.titleBlock}>
         <Text style={styles.titleBi}>Bienvenido</Text>
         <Text
-          style={styles.title}>{`${auth.first_name} ${auth.last_name}`}</Text>
+          style={styles.title}>{`${auth.firstName}`}</Text>
       </View>
       <View style={styles.dataContent}>
         <ItemMenu
           title={'Name: '}
-          text={`${auth.first_name} ${auth.last_name}`}
+          text={`${auth.firstName}`}
           icon={faUser}
         />
-        <ItemMenu title={'User: '} text={`${auth.username}`} icon={faCheck} />
+        <ItemMenu title={'User: '} text={auth.userName} icon={faCheck} />
         <ItemMenu title={'Email: '} text={`${auth.email}`} icon={faEnvelope} />
       </View>
       <Pressable onPress={logout} style={styles.button}>

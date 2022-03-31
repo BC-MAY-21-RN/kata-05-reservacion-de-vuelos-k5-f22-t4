@@ -13,12 +13,6 @@ export default function NoLogged() {
 
   const user = auth().currentUser;
 
-  if (user) {
-    console.log('User email: ', user.email);
-  } {
-    console.log("No logged");
-  }
-
   return (
     <View style={styles.content}>
       <Text style={styles.text}>

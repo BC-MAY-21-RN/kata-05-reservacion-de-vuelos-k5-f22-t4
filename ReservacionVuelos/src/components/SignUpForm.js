@@ -10,12 +10,23 @@ import ModalResponse from './ModalResponse';
 import FormContain from './FormContain';
 import {useNavigation} from '@react-navigation/native';
 import useAuth from '../hooks/useAuth';
+import firestore from '@react-native-firebase/firestore';
 
 const registerUser = (values, setModalVisible, navigation, login) => {
   auth()
-    .createUserWithEmailAndPassword(values.email, values.password)
-    .then((user) => {
+    .createUserWithEmailAndPassword(values.email, values.password, values.firstName)
+    .then(user => {
       setModalVisible(true);
+      firestore()
+        .collection('Users')
+        .add({
+          email: values.email,
+          userName: values.email.split('@')[0],
+          firstName: values.firstName,
+        })
+        .then(() => {
+          console.log('User added!');
+        });
       login(user.user.email);
       setTimeout(function () {
         setModalVisible(false);
@@ -46,7 +57,9 @@ const SignUpForm = () => {
         initialValues={{firstName: '', email: '', password: '', terms: true}}
         validateOnMount={true}
         validationSchema={SignupSchema}
-        onSubmit={values => registerUser(values, setModalVisible, navigation, login)}>
+        onSubmit={values =>
+          registerUser(values, setModalVisible, navigation, login)
+        }>
         {({handleSubmit, isValid}) => (
           <>
             <FormContain />
