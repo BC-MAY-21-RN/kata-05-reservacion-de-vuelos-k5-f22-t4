@@ -9,7 +9,7 @@ export default function FlightLocation(props) {
   return (
     <View style={dStyle}>
       {map(data, (item, index) => (
-        <View style={styles.content}>
+        <View key={index} style={styles.content}>
           <Text style={styles.abrev}>{toUpper(item.abrev)}</Text>
           <Text style={styles.country}>{capitalize(item.country)}</Text>
           <Image source={{ uri: item.img }} style={styles.imgCountry} />

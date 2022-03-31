@@ -10,7 +10,7 @@ import {useNavigation} from '@react-navigation/native';
 import {getFlights} from '../api/flights';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
-import ListFlights from '../components/Flights/FlaightsList';
+import ListFlights from '../components/Flights/FlightsList';
 import useAuth from '../hooks/useAuth';
 import NoLogged from '../components/Account/NoLogged';
 
@@ -49,6 +49,10 @@ async function loadFlights(setIsLoading, setFlights, setError) {
   } catch (er) {
     setError(er);
   }
+}
+
+async function loadFlightsFirebase() {
+
 }
 
 function FlightsContent(props) {

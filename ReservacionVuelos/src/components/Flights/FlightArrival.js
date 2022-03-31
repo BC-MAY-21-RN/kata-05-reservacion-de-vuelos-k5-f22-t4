@@ -2,7 +2,7 @@ import {View} from 'react-native';
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faPlaneArrival} from '@fortawesome/free-solid-svg-icons';
-import FlaightLocation from './FlaightLocation';
+import FlightLocation from './FlightLocation';
 import colors from '../../utils/colors';
 import styles from '../../utils/styles/stylesFlights';
 
@@ -17,7 +17,7 @@ export default function FliaghtArrival(props) {
           size={40}
         />
       </View>
-      <FlaightLocation data={flight.arrival} align="flex-end" />
+      <FlightLocation data={flight.arrival} align="flex-end" />
     </>
   );
 }
