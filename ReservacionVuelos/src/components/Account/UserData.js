@@ -17,7 +17,7 @@ export default function UserData() {
   return (
     <View styles={styles.content}>
       <View style={styles.titleBlock}>
-        <Text style={styles.titleBi}>Bienvenido</Text>
+        <Text style={styles.titleBi}>Welcome</Text>
         <Text style={styles.title}>{`${auth.firstName}`}</Text>
       </View>
       <View style={styles.dataContent}>
@@ -27,7 +27,7 @@ export default function UserData() {
       </View>
       <Pressable onPress={logout} style={styles.button}>
         <FontAwesomeIcon icon={faPersonWalking} size={25} color="#fff" />
-        <Text style={styles.buttonText}>Cerrar sesión</Text>
+        <Text style={styles.buttonText}>LogOut</Text>
       </Pressable>
     </View>
   );
