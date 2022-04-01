@@ -29,6 +29,23 @@ export async function getFlightsFirestore(user) {
   }
 }
 
+export async function getCitiesFirestore() {
+  const arrayCities = [];
+  try {
+    await firestore()
+      .collection('Cities')
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(documentSnapshot => {
+          arrayCities.push(documentSnapshot.data());
+        });
+      });
+    return arrayCities;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export function addFlightFirestore() {
   (async () => {
     try {
@@ -38,6 +55,25 @@ export function addFlightFirestore() {
       throw error;
     }
   })();
+}
+
+export function addCitiesFirestore() {
+  (async () => {
+    try {
+      firestore().collection('Cities').doc().set(cities);
+      console.log('Add success citie');
+    } catch (error) {
+      throw error;
+    }
+  })();
+}
+
+const cities = {
+  country: 'estados unidos',
+  id: 12,
+  name: 'chicago',
+  abrev: 'chi',
+  img: 'https://cdn-icons-png.flaticon.com/512/940/940207.png',
 }
 
 const data = {

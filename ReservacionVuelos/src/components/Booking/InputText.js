@@ -1,20 +1,100 @@
-import { View, TextInput } from 'react-native'
-import React, {useState} from 'react'
-import styles from '../../utils/styles/stylesBooking'
+import {View, TextInput} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import styles from '../../utils/styles/stylesBooking';
+import {filter, toLower, capitalize} from 'lodash';
+import ListCities from './ListCities';
+import {getCitiesFirestore} from '../../api/flights';
 
-export default function InputText() {
-    const [query, setQuery] = useState('');
+export default function InputText(props) {
+  const [query, setQuery] = useState('');
+  const [fullCities, setFullCities] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [isVisible, setIsVisible] = useState(undefined);
+  const [select, setSelect] = useState();
+  const {setData, location} = props;
+
+  useEffect(() => {
+    (async () => {
+      try {
+        loadCities(setCities);
+      } catch (error) {
+        console.log('Error cities: ', error);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    if(select) {
+      selectedCity(select, setData, setQuery, setIsVisible, location)
+    }
+  }, [select]);
+
   return (
     <View style={styles.inputContaint}>
       <TextInput
-        autoCapitalize='words'
+        autoCapitalize="words"
         autoCorrect={false}
         clearButtonMode="always"
         style={styles.input}
         value={query}
-        onChangeText={queryText => handleSearch(queryText)}
+        onChangeText={queryText =>
+          handleSearch(queryText, setIsVisible, setFullCities, setQuery, cities)
+        }
         placeholder="Search"
       />
+      <ListCities
+        cities={fullCities}
+        isVisible={isVisible}
+        setSelect={setSelect}
+      />
     </View>
-  )
+  );
+}
+
+async function loadCities(setCities) {
+  try {
+    const response = await getCitiesFirestore();
+    setCities(response);
+  } catch (error) {
+    throw error;
+  }
+}
+
+function handleSearch(text, setIsVisible, setFullCities, setQuery, cities) {
+  const lengthQuery = text.length;
+  if (lengthQuery < 2) {
+    setIsVisible(undefined);
+  } else {
+    setIsVisible(true);
+    setFullCities(cities);
+  }
+  const formattedQuery = toLower(text);
+  const filterCities = filter(cities, city => {
+    const res = contains(city, formattedQuery);
+    return res;
+  });
+  setFullCities(filterCities);
+  setQuery(text);
+}
+
+function contains({country, name}, query) {
+  if (country.includes(query) || name.includes(query)) {
+    return true;
+  }
+  return false;
+}
+
+function selectedCity(city, setData, setQuery, setIsVisible) {
+  const c = capitalize(city.name) + ', ' + capitalize(city.country);
+  setQuery(c);
+  setIsVisible(null);
+  const fli = {
+    departure: {
+      city: city.name,
+      country: city.country,
+      abrev: city.abrev,
+      img: city.img,
+    },
+  };
+  setData(fli);
 }

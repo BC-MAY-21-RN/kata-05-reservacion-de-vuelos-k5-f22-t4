@@ -4,17 +4,17 @@ import colors from '../colors';
 
 module.exports = StyleSheet.create({
   containerFeacture: {
-    marginTop: 200,
+    marginTop: 240,
     alignItems: 'center',
-    marginBottom: 180,
   },
   containerArrival: {
-    marginTop: 200,
+    marginTop: 20,
     alignItems: 'center',
-    marginBottom: 180,
+    marginBottom: 120,
   },
   btnBooking: {
     width: '80%',
+    marginTop: 150,
   },
   button: {
     borderRadius: 10,
@@ -23,7 +23,7 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     height: 50,
     backgroundColor: '#5499C7',
-    marginTop: 100,
+    marginTop: 90,
     margin: 10,
   },
   buttonText: {
@@ -51,4 +51,39 @@ module.exports = StyleSheet.create({
     color: '#000',
     padding: 15,
   },
+  imgCity: {
+    width: 22,
+    height: 22,
+    marginEnd: 6,
+    marginTop: 2,
+  },
+  listCityItem: {
+    marginTop: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    backgroundColor: colors.GRAY,
+    borderRadius: 4,
+  },
+  textItem: {
+    color: colors.PRIMARY_COLOR_DARK,
+    fontSize: 16,
+  },
+  locationArrival: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 70,
+    margin: 20,
+    width: '90%',
+  },
+  borderDeparture: {
+    width: '50%',
+    borderBottomWidth: 0.5,
+    marginStart: 20,
+    marginTop: -10,
+  },
+  listCities: {
+    marginBottom: -200,
+  }
 });

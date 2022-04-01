@@ -6,11 +6,11 @@ import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 import styles from '../../utils/styles/stylesBooking';
 
 export default function Button(props) {
-  const {next} = props;
+  const {next, data} = props;
   const navigation = useNavigation();
 
   const nextSteep = () => {
-    navigation.navigate(next);
+    navigation.navigate(next, {data});
   };
 
   return (
