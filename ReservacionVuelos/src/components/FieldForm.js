@@ -21,7 +21,6 @@ const FieldForm = ({label, securePass, ...props}) => {
   };
   return (
     <View style={signUpStyles.field}>
-      {console.log(props.secureTextEntry)}
       <View
         style={{
           flexDirection: 'row',

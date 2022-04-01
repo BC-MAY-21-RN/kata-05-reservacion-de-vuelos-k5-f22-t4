@@ -1,10 +1,15 @@
-import { Text, View } from 'react-native';
-import React from 'react';
+import {Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import LogInForm from '../components/LogInForm';
+import UserData from '../components/Account/UserData';
+import useAuth from '../hooks/useAuth';
+
 const LogIn = () => {
-    return (
-        <LogInForm />
-    );
+  const {auth} = useAuth()
+
+  return (
+      !auth ?  <LogInForm /> :  <UserData />
+  );
 };
 
 export default LogIn;
