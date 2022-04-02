@@ -5,7 +5,7 @@ import {
   SafeAreaView,
   ActivityIndicator,
 } from 'react-native';
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {getFlightsFirestore} from '../api/flights';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';

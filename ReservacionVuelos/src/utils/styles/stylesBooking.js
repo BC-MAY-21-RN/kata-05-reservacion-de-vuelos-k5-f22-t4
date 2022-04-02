@@ -77,13 +77,14 @@ module.exports = StyleSheet.create({
     margin: 20,
     width: '90%',
   },
+  locationFinal: {
+    justifyContent: 'space-around',
+  },
   borderDeparture: {
-    width: '50%',
+    width: '80%',
     borderBottomWidth: 0.5,
-    marginStart: 20,
-    marginTop: -10,
   },
   listCities: {
     marginBottom: -200,
-  }
+  },
 });

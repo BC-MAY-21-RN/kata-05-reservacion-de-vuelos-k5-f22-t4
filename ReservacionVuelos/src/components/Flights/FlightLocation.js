@@ -4,8 +4,8 @@ import {map, capitalize, toUpper} from 'lodash';
 import styles from '../../utils/styles/stylesFlights';
 
 export default function FlightLocation(props) {
-  const {data, align} = props;
-  const dStyle = {alignItems: align, ...styles.departure};
+  const {data} = props;
+  const dStyle = {...styles.departure};
   return (
     <View style={dStyle}>
       <View style={styles.content}>
