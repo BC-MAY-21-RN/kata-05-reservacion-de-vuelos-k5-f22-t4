@@ -4,7 +4,7 @@ import styles from '../../utils/styles/stylesBooking';
 import Button from './Button';
 import IconNavigation from './IconNavigation';
 import FlightDeapture from '../Flights/FlightDeapture';
-//1234qwER$$
+
 export default function AddDate(props) {
   const {
     navigation,

@@ -5,16 +5,7 @@ import Button from './Button';
 import IconNavigation from './IconNavigation';
 import styles from '../../utils/styles/stylesBooking';
 import FlightDeapture from '../Flights/FlightDeapture';
-const jsonData = [
-  {
-    departure: {
-      abrev: 'med',
-      city: 'medellin',
-      country: 'colombia',
-      img: 'https://cdn-icons-png.flaticon.com/512/555/555617.png',
-    },
-  },
-];
+
 export default function AddArrival({route, navigation}) {
   const {data} = route.params;
   const [arrival, setArrival] = useState();
