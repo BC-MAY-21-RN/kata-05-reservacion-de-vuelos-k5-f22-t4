@@ -28,21 +28,27 @@ export default function AddDate(props) {
   }, [navigation, params]);
 
   function onDateChange(date){
-    setDateSelect(date.toString());
+    const options = {year: 'numeric', month: 'long', day: '2-digit'};
+    const Fecha = new Date(date.toString());
+    const newFecha = Fecha.toLocaleDateString('es-ES', options);
+    setDateSelect(Fecha.toDateString());
+    ////Mon Apr 04 2022 17:27:40 GMT-0500
   }
 
   return (
-    <View>
+    <View style={{flexDirection:'column', justifyContent:'space-around'}}>
       <View style={styles.flightsAddDate}>
         <FlightDeapture flight={flight} style={styles.flighArrival} />
         <FlightArrival flight={flight} style={styles.flighArrival} />
       </View>
       <View style={styles.borderDate}></View>
-      <Text>{dateSelect}</Text>
+      <View style={styles.addDateDetails} >
+        <Text>{dateSelect}</Text>
+      </View>
       <Text style={[styles.textTitle, styles.textDateTitle]}>Select date</Text>
       <View style={styles.inputsDate}>
         <CalendarPicker onDateChange={onDateChange} />
-        <Button next="AddPassengers" />
+        <Button next="AddPassengers"/>
       </View>
     </View>
   );

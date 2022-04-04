@@ -13,7 +13,6 @@ module.exports = StyleSheet.create({
   },
   btnBooking: {
     width: '80%',
-    marginTop: 180,
   },
   button: {
     borderRadius: 10,
@@ -104,9 +103,10 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
   },
   inputsDate: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  textDateTitle: {
-    marginTop: 15,
+  addDateDetails: {
+    marginLeft: 20,
+    margin: 5,
   },
 });
