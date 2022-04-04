@@ -24,8 +24,8 @@ export default function InputText(props) {
   }, []);
 
   useEffect(() => {
-    if(select) {
-      selectedCity(select, setData, setQuery, setIsVisible, location)
+    if (select) {
+      selectedCity(select, setData, setQuery, setIsVisible, location);
     }
   }, [select]);
 
@@ -84,17 +84,16 @@ function contains({country, name}, query) {
   return false;
 }
 
-function selectedCity(city, setData, setQuery, setIsVisible) {
+function selectedCity(city, setData, setQuery, setIsVisible, location) {
   const c = capitalize(city.name) + ', ' + capitalize(city.country);
   setQuery(c);
   setIsVisible(null);
-  const fli = {
-    departure: {
-      city: city.name,
-      country: city.country,
-      abrev: city.abrev,
-      img: city.img,
-    },
+  const fly = {};
+  fly[location] = {
+    city: city.name,
+    country: city.country,
+    abrev: city.abrev,
+    img: city.img,
   };
-  setData(fli);
+  setData(fly);
 }

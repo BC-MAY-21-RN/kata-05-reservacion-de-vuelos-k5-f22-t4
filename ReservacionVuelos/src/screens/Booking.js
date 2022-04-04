@@ -11,9 +11,7 @@ export default function Booking(props) {
     navigation,
     route: {params},
   } = props;
-  const {auth} = useAuth()
-  const [booking, setBooking] = useState([auth.userName])
-  const [data, setData] = useState()
+  const [origin, setOrigin] = useState()
 
   useEffect(() => {
     navigation.setOptions({
@@ -24,8 +22,8 @@ export default function Booking(props) {
   return (
     <View style={styles.containerFeacture}>
       <Text style={styles.textTitle}>Where are you now?</Text>
-      <InputText setData={setData} />
-      <Button next="AddArrival" data={data} />
+      <InputText setData={setOrigin} location='departure' />
+      <Button next="AddArrival" data={origin} />
     </View>
   );
 }

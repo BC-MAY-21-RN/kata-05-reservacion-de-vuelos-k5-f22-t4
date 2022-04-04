@@ -9,12 +9,11 @@ module.exports = StyleSheet.create({
   },
   containerArrival: {
     marginTop: 20,
-    alignItems: 'center',
     marginBottom: 120,
   },
   btnBooking: {
     width: '80%',
-    marginTop: 150,
+    marginTop: 180,
   },
   button: {
     borderRadius: 10,
@@ -46,7 +45,7 @@ module.exports = StyleSheet.create({
     width: '90%',
   },
   textTitle: {
-    fontSize: 38,
+    fontSize: 30,
     fontWeight: 'bold',
     color: '#000',
     padding: 15,
@@ -70,21 +69,44 @@ module.exports = StyleSheet.create({
     color: colors.PRIMARY_COLOR_DARK,
     fontSize: 16,
   },
-  locationArrival: {
+  flightsAddDate: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 70,
-    margin: 20,
+    marginHorizontal: '5%',
     width: '90%',
   },
-  locationFinal: {
-    justifyContent: 'space-around',
+  locationArrival: {
+    marginTop: 40,
+    marginStart: 30,
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  flighArrival: {
+    margin: 10,
+    flexDirection: 'row',
   },
   borderDeparture: {
-    width: '80%',
     borderBottomWidth: 0.5,
+    width: '40%',
+    marginStart: 30,
+  },
+  borderDate: {
+    borderBottomWidth: 0.5,
+    width: '90%',
+    marginStart: '5%',
   },
   listCities: {
     marginBottom: -200,
+  },
+  contentArrival: {
+    marginTop: 30,
+    alignItems: 'center',
+  },
+  inputsDate: {
+    alignItems: 'center'
+  },
+  textDateTitle: {
+    marginTop: 15,
   },
 });

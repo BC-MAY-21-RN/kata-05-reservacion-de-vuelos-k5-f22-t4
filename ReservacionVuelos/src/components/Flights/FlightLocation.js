@@ -1,11 +1,11 @@
 import {View, Text, Image} from 'react-native';
 import React from 'react';
-import {map, capitalize, toUpper} from 'lodash';
+import { capitalize, toUpper} from 'lodash';
 import styles from '../../utils/styles/stylesFlights';
 
 export default function FlightLocation(props) {
-  const {data} = props;
-  const dStyle = {...styles.departure};
+  const {data, align} = props;
+  const dStyle = {alignItems: align, ...styles.departure};
   return (
     <View style={dStyle}>
       <View style={styles.content}>

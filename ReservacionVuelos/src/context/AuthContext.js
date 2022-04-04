@@ -6,7 +6,7 @@ export const AuthContext = createContext({
   auth: undefined,
   login: () => {},
   logout: () => {},
-  bookin: [],
+  bookin: undefined,
 });
 
 function getUserData(userData, setAuth) {
@@ -30,7 +30,7 @@ function getUserData(userData, setAuth) {
 export function AuthProvider(props) {
   const {children} = props;
   const [auth, setAuth] = useState(undefined);
-  const [bookin, setBooking] = useState([])
+  const [bookin, setBooking] = useState()
 
   function login(userData) {
     getUserData(userData, setAuth);
@@ -44,6 +44,7 @@ export function AuthProvider(props) {
     login,
     logout,
     bookin,
+    setBooking,
   };
   return (
     <AuthContext.Provider value={valueContext}>{children}</AuthContext.Provider>
