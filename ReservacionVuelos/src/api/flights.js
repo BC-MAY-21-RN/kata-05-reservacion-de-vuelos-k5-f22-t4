@@ -46,11 +46,10 @@ export async function getCitiesFirestore() {
   }
 }
 
-export function addFlightFirestore() {
+export function addFlightFirestore(data) {
   (async () => {
     try {
       firestore().collection('Flights').doc().set(data);
-      console.log('Add success');
     } catch (error) {
       throw error;
     }
@@ -61,11 +60,26 @@ export function addCitiesFirestore() {
   (async () => {
     try {
       firestore().collection('Cities').doc().set(cities);
-      console.log('Add success citie');
     } catch (error) {
       throw error;
     }
   })();
+}
+
+export async function getFlightsSizeFirestore(user) {
+  let size = 0;
+    try {
+      await firestore()
+        .collection('Flights')
+        .where('user', '==', user)
+        .get()
+        .then(querySnapshot => {
+          size = querySnapshot.size;
+        });
+      return size;
+    } catch (error) {
+      console.log("Error count flights", error);
+    }
 }
 
 const cities = {
@@ -74,23 +88,4 @@ const cities = {
   name: 'chicago',
   abrev: 'chi',
   img: 'https://cdn-icons-png.flaticon.com/512/940/940207.png',
-}
-
-const data = {
-  user: 'mario1508',
-  passangers: 1,
-  id: 2,
-  date: 'Diciembre 12, 2022',
-  departure: {
-    city: 'cdmx',
-    country: 'méxico',
-    abrev: 'cmx',
-    img: 'https://cdn-icons-png.flaticon.com/512/330/330433.png',
-  },
-  arrival: {
-    city: 'houston',
-    country: 'estados unidos',
-    abrev: 'hou',
-    img: 'https://cdn-icons-png.flaticon.com/512/940/940207.png',
-  },
 };

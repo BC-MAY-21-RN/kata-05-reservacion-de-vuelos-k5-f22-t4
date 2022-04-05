@@ -12,6 +12,7 @@ export default function Booking(props) {
     route: {params},
   } = props;
   const [origin, setOrigin] = useState()
+  const [isDisabled, setIsDisabled] = useState(true)
 
   useEffect(() => {
     navigation.setOptions({
@@ -22,8 +23,8 @@ export default function Booking(props) {
   return (
     <View style={styles.containerFeacture}>
       <Text style={styles.textTitle}>Where are you now?</Text>
-      <InputText setData={setOrigin} location='departure' />
-      <Button next="AddArrival" data={origin} />
+      <InputText setData={setOrigin} location='departure' setIsDisabled={setIsDisabled} />
+      <Button next="AddArrival" data={origin} isDisabled={isDisabled} />
     </View>
   );
 }

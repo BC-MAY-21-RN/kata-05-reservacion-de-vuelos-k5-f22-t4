@@ -11,7 +11,7 @@ export default function InputText(props) {
   const [cities, setCities] = useState([]);
   const [isVisible, setIsVisible] = useState(undefined);
   const [select, setSelect] = useState();
-  const {setData, location} = props;
+  const {setData, location, setIsDisabled} = props;
 
   useEffect(() => {
     (async () => {
@@ -26,6 +26,7 @@ export default function InputText(props) {
   useEffect(() => {
     if (select) {
       selectedCity(select, setData, setQuery, setIsVisible, location);
+      setIsDisabled(false)
     }
   }, [select]);
 
@@ -38,7 +39,7 @@ export default function InputText(props) {
         style={styles.input}
         value={query}
         onChangeText={queryText =>
-          handleSearch(queryText, setIsVisible, setFullCities, setQuery, cities)
+          handleSearch(queryText, setIsVisible, setFullCities, setQuery, cities, setIsDisabled)
         }
         placeholder="Search"
       />
@@ -60,8 +61,9 @@ async function loadCities(setCities) {
   }
 }
 
-function handleSearch(text, setIsVisible, setFullCities, setQuery, cities) {
+function handleSearch(text, setIsVisible, setFullCities, setQuery, cities, setIsDisabled) {
   const lengthQuery = text.length;
+  setIsDisabled(false)
   if (lengthQuery < 2) {
     setIsVisible(undefined);
   } else {

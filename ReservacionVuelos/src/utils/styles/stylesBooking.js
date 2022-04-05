@@ -106,7 +106,13 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
   },
   addDateDetails: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginLeft: 20,
+    paddingVertical: 10,
+    width: '90%',
     margin: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: '#000',
   },
 });

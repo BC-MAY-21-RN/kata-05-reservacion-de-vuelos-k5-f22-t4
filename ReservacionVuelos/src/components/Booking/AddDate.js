@@ -27,6 +27,10 @@ export default function AddDate(props) {
     });
   }, [navigation, params]);
 
+  useEffect(() => {
+    flight['date'] = dateSelect;
+  }, [dateSelect]);
+
   function onDateChange(date){
     const options = {year: 'numeric', month: 'long', day: '2-digit'};
     const Fecha = new Date(date.toString());
@@ -48,7 +52,7 @@ export default function AddDate(props) {
       <Text style={[styles.textTitle, styles.textDateTitle]}>Select date</Text>
       <View style={styles.inputsDate}>
         <CalendarPicker onDateChange={onDateChange} />
-        <Button next="AddPassengers"/>
+        <Button next="AddPassengers" data={flight} />
       </View>
     </View>
   );

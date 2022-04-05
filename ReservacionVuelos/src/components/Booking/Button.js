@@ -6,7 +6,7 @@ import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
 import styles from '../../utils/styles/stylesBooking';
 
 export default function Button(props) {
-  const {next, data} = props;
+  const {next, data, isDisabled} = props;
   const navigation = useNavigation();
 
   const nextSteep = () => {
@@ -15,7 +15,7 @@ export default function Button(props) {
 
   return (
     <View style={styles.btnBooking}>
-      <Pressable onPress={nextSteep} style={styles.button}>
+      <Pressable onPress={nextSteep} style={styles.button} disabled={isDisabled}>
         <Text style={styles.buttonText}>Next</Text>
         <FontAwesomeIcon icon={faArrowRight} size={18} color="#fff" style={styles.iconButton} />
       </Pressable>

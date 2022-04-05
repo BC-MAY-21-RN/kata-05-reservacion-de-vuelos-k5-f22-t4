@@ -10,6 +10,7 @@ import useAuth from '../../hooks/useAuth';
 export default function AddArrival({route, navigation}) {
   const {data} = route.params;
   const [arrival, setArrival] = useState();
+  const [isDisabled, setIsDisabled] = useState(true)
 
   useEffect(() => {
     navigation.setOptions({
@@ -25,8 +26,8 @@ export default function AddArrival({route, navigation}) {
       <View style={styles.borderDeparture}></View>
       <View style={styles.contentArrival}>
         <Text style={styles.textTitle}>Where will you be flying to?</Text>
-        <InputText setData={setArrival} location="arrival" />
-        <Button next="AddDate" data={[{...data}, {...arrival}]} />
+        <InputText setData={setArrival} location="arrival" setIsDisabled={setIsDisabled} />
+        <Button next="AddDate" data={[{...data}, {...arrival}]} isDisabled={isDisabled} />
       </View>
     </View>
   );
