@@ -24,7 +24,7 @@ export default function Booking(props) {
     <View style={styles.containerFeacture}>
       <Text style={styles.textTitle}>Where are you now?</Text>
       <InputText setData={setOrigin} location='departure' setIsDisabled={setIsDisabled} />
-      <Button next="AddArrival" data={origin} isDisabled={isDisabled} />
+      <Button next="AddArrival" data={origin} isDisabled={isDisabled}/>
     </View>
   );
 }

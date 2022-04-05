@@ -4,7 +4,7 @@ import colors from '../colors';
 
 module.exports = StyleSheet.create({
   containerFeacture: {
-    marginTop: 240,
+    marginTop: 180,
     alignItems: 'center',
   },
   containerArrival: {
@@ -13,6 +13,7 @@ module.exports = StyleSheet.create({
   },
   btnBooking: {
     width: '80%',
+
   },
   button: {
     borderRadius: 10,
@@ -21,7 +22,7 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     height: 50,
     backgroundColor: '#5499C7',
-    marginTop: 90,
+    marginTop: 100,
     margin: 10,
   },
   buttonText: {
@@ -93,10 +94,11 @@ module.exports = StyleSheet.create({
   borderDate: {
     borderBottomWidth: 0.5,
     width: '90%',
-    marginStart: '5%',
+    margin: '5%'
   },
   listCities: {
-    marginBottom: -200,
+    width:'100%',
+    height:180,
   },
   contentArrival: {
     marginTop: 30,
