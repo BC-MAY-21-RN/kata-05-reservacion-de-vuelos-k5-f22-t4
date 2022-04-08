@@ -8,6 +8,7 @@ import styles from '../../utils/styles/stylesFlights';
 
 export default function FlightDeapture(props) {
   const {flight} = props;
+
   return (
     <>
       <FlightLocation data={flight.departure} align="flex-start" />

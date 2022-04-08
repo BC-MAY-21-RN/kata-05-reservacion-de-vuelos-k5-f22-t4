@@ -1,20 +1,18 @@
 import {View, Text, Image} from 'react-native';
 import React from 'react';
-import {map, capitalize, toUpper} from 'lodash';
-import styles from '../../utils/styles/stylesFlights'
+import { capitalize, toUpper} from 'lodash';
+import styles from '../../utils/styles/stylesFlights';
 
 export default function FlightLocation(props) {
   const {data, align} = props;
-  const dStyle = { alignItems: align, ...styles.departure }
+  const dStyle = {alignItems: align, ...styles.departure};
   return (
     <View style={dStyle}>
-      {map(data, (item, index) => (
-        <View key={index} style={styles.content}>
-          <Text style={styles.abrev}>{toUpper(item.abrev)}</Text>
-          <Text style={styles.country}>{capitalize(item.country)}</Text>
-          <Image source={{ uri: item.img }} style={styles.imgCountry} />
-        </View>
-      ))}
+      <View style={styles.content}>
+        <Text style={styles.abrev}>{toUpper(data.abrev)}</Text>
+        <Text style={styles.country}>{capitalize(data.country)}</Text>
+        <Image source={{uri: data.img}} style={styles.imgCountry} />
+      </View>
     </View>
   );
 }

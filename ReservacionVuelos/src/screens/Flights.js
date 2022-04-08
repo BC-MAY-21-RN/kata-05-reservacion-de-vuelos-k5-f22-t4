@@ -5,15 +5,15 @@ import {
   SafeAreaView,
   ActivityIndicator,
 } from 'react-native';
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {getFlights} from '../api/flights';
+import {getFlightsFirestore} from '../api/flights';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import ListFlights from '../components/Flights/FlightsList';
 import useAuth from '../hooks/useAuth';
 import NoLogged from '../components/Account/NoLogged';
-
+import {useFocusEffect} from '@react-navigation/native';
 import styles from '../utils/styles/stylesFlights';
 import colors from '../utils/colors';
 
@@ -23,11 +23,15 @@ export default function Flights() {
   const [error, setError] = useState(null);
   const {auth} = useAuth();
 
-  useEffect(() => {
-    (async () => {
-      await loadFlights(setIsLoading, setFlights, setError);
-    })();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      if (auth) {
+        (async () => {
+          await loadFlights(setIsLoading, setFlights, setError, auth.userName);
+        })();
+      }
+    }),
+  );
 
   if (isLoading) {
     return <ViewIndicator />;
@@ -40,19 +44,14 @@ export default function Flights() {
   return !auth ? <NoLogged /> : <FlightsContent flights={flights} />;
 }
 
-async function loadFlights(setIsLoading, setFlights, setError) {
-  setIsLoading(true);
+async function loadFlights(setIsLoading, setFlights, setError, user) {
   try {
-    const response = await getFlights();
+    const response = await getFlightsFirestore(user);
     setFlights(response);
     setIsLoading(false);
   } catch (er) {
     setError(er);
   }
-}
-
-async function loadFlightsFirebase() {
-
 }
 
 function FlightsContent(props) {

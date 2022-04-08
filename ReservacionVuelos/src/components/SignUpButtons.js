@@ -1,4 +1,4 @@
-import { Text, View, Pressable } from 'react-native';
+import { Text, View } from 'react-native';
 import React from 'react';
 import signUpStyles from '../utils/styles/Styles';
 import ButtonForm from './ButtonForm';
